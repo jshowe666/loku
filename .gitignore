@@ -1,0 +1,21 @@
+# Gradle files
+.gradle/
+build/
+*/build/
+
+# Local configuration
+local.properties
+.idea/
+.DS_Store
+
+# Generated files
+captures/
+.externalNativeBuild/
+.cxx/
+*.iml
+
+# Logs
+*.log
+
+# Wrapper binary (excluded to keep PRs text-only)
+gradle/wrapper/gradle-wrapper.jar
