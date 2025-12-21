@@ -61,6 +61,8 @@ dependencies {
     implementation(libs.compose.ui.graphics)
     implementation(libs.compose.ui.tooling.preview)
     implementation(libs.compose.material3)
+    implementation("androidx.compose.material:material-icons-extended")
+    implementation("io.coil-kt:coil-compose:2.7.0")
     implementation("com.google.android.material:material:1.13.0")
 
     testImplementation(libs.junit)

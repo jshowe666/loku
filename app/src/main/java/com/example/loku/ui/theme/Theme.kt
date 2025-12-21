@@ -10,36 +10,45 @@ import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 
 private val DarkColorScheme = darkColorScheme(
-    primary = LokuGreen,
-    secondary = LokuGreen,
-    tertiary = LokuGreen,
-    background = LokuDark,
-    surface = LokuDark,
-    onBackground = Color.White,
-    onSurface = Color.White
+    primary = LokuRose,
+    onPrimary = LokuInk,
+    secondary = LokuBlush,
+    onSecondary = LokuInk,
+    tertiary = LokuSky,
+    onTertiary = LokuInk,
+    background = LokuInk,
+    surface = LokuInk,
+    surfaceVariant = LokuOnLight,
+    onBackground = LokuCloud,
+    onSurface = LokuCloud,
+    onSurfaceVariant = LokuCloud.copy(alpha = 0.8f)
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = LokuGreen,
-    secondary = LokuGreen,
-    tertiary = LokuGreen,
-    background = LokuLight,
-    surface = LokuLight,
-    onBackground = LokuDark,
-    onSurface = LokuDark
+    primary = LokuRose,
+    onPrimary = LokuInk,
+    secondary = LokuBlush,
+    onSecondary = LokuInk,
+    tertiary = LokuSky,
+    onTertiary = LokuInk,
+    background = LokuCloud,
+    surface = LokuMint,
+    surfaceVariant = LokuCloud,
+    onBackground = LokuOnLight,
+    onSurface = LokuOnLight,
+    onSurfaceVariant = LokuOnLight.copy(alpha = 0.75f)
 )
 
 @Composable
 fun LokuTheme(
     useDarkTheme: Boolean = isSystemInDarkTheme(),
-    dynamicColor: Boolean = true,
+    dynamicColor: Boolean = false,
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
