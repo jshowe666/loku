@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Loku</string>
+    <string name="hello_world_title">Hello, Loku!</string>
+    <string name="hello_world_subtitle">Your social canvas is coming soon.</string>
+</resources>
