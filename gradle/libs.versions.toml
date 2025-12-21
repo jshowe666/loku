@@ -1,5 +1,5 @@
 [versions]
-agp = "8.6.1"
+agp = "8.13.2"
 kotlin = "2.0.21"
 compose-bom = "2024.09.02"
 compose-compiler = "1.6.11"
@@ -29,3 +29,4 @@ androidx-test-espresso-core = { module = "androidx.test.espresso:espresso-core",
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
