@@ -41,15 +41,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.draw.clip
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.ui.res.painterResource
 import kotlin.random.Random
 import hk.bbnj.loku.ui.theme.LokuTheme
 import hk.bbnj.loku.ui.theme.LagoonBlue
@@ -153,13 +150,18 @@ fun FeedCardItem(card: FeedCard, modifier: Modifier = Modifier) {
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
     ) {
         Column {
-            Image(
-                painter = painterResource(id = R.drawable.card_placeholder),
-                contentDescription = "Preview for ${card.title}",
+            Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .aspectRatio(16f / 9f),
-                contentScale = ContentScale.Crop
+                    .aspectRatio(16f / 9f)
+                    .background(
+                        Brush.linearGradient(
+                            colors = listOf(
+                                Color(0xFF0F9B8E),
+                                Color(0xFFFBD786)
+                            )
+                        )
+                    )
             )
             Column(modifier = Modifier.padding(16.dp)) {
                 Text(
