@@ -46,6 +46,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
@@ -84,11 +85,11 @@ fun MainFeedScreen(modifier: Modifier = Modifier) {
             .background(Color.Black),
         columns = GridCells.Fixed(2),
         contentPadding = androidx.compose.foundation.layout.PaddingValues(
-            horizontal = 16.dp,
-            vertical = 20.dp
+            horizontal = 6.dp,
+            vertical = 8.dp
         ),
-        horizontalArrangement = Arrangement.spacedBy(16.dp),
-        verticalArrangement = Arrangement.spacedBy(16.dp)
+        horizontalArrangement = Arrangement.spacedBy(6.dp),
+        verticalArrangement = Arrangement.spacedBy(6.dp)
     ) {
         items(
             count = Int.MAX_VALUE,
@@ -173,10 +174,14 @@ fun FeedCardItem(card: FeedCard, modifier: Modifier = Modifier) {
                     .padding(16.dp)
             ) {
                 Text(
-                    text = card.title,
-                    style = MaterialTheme.typography.bodySmall,
+                    text = truncateText(card.title, maxChars = 26),
+                    style = MaterialTheme.typography.bodyMedium.copy(
+                        fontSize = MaterialTheme.typography.bodyMedium.fontSize * 1.1f
+                    ),
                     color = Color.White,
-                    fontWeight = FontWeight.Medium
+                    fontWeight = FontWeight.Bold,
+                    maxLines = 2,
+                    overflow = TextOverflow.Ellipsis
                 )
                 Spacer(modifier = Modifier.height(12.dp))
                 Row(
@@ -202,10 +207,13 @@ fun FeedCardItem(card: FeedCard, modifier: Modifier = Modifier) {
                         }
                         Spacer(modifier = Modifier.width(6.dp))
                         Text(
-                            text = card.userName,
-                            style = MaterialTheme.typography.bodySmall,
+                            text = truncateText(card.userName, maxChars = 10),
+                            style = MaterialTheme.typography.bodySmall.copy(
+                                fontSize = MaterialTheme.typography.bodySmall.fontSize * 0.7f
+                            ),
                             color = Color.White,
-                            maxLines = 1
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis
                         )
                     }
                     Spacer(modifier = Modifier.weight(1f))
@@ -230,6 +238,12 @@ fun FeedCardItem(card: FeedCard, modifier: Modifier = Modifier) {
             }
         }
     }
+}
+
+private fun truncateText(text: String, maxChars: Int): String {
+    if (text.length <= maxChars) return text
+    if (maxChars <= 3) return "...".take(maxChars)
+    return text.take(maxChars - 3) + "..."
 }
 
 @Composable
