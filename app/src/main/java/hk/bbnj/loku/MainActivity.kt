@@ -46,7 +46,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.draw.clip
-import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import kotlin.random.Random
 import hk.bbnj.loku.ui.theme.LokuTheme
 import hk.bbnj.loku.ui.theme.LagoonBlue
@@ -76,14 +78,16 @@ data class FeedCard(
 
 @Composable
 fun MainFeedScreen(modifier: Modifier = Modifier) {
-    LazyColumn(
+    LazyVerticalGrid(
         modifier = modifier
             .fillMaxSize()
             .background(Color.Black),
+        columns = GridCells.Fixed(2),
         contentPadding = androidx.compose.foundation.layout.PaddingValues(
             horizontal = 16.dp,
             vertical = 20.dp
         ),
+        horizontalArrangement = Arrangement.spacedBy(16.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         items(
@@ -163,7 +167,11 @@ fun FeedCardItem(card: FeedCard, modifier: Modifier = Modifier) {
                         )
                     )
             )
-            Column(modifier = Modifier.padding(16.dp)) {
+            Column(
+                modifier = Modifier
+                    .background(Color(0xFF0E0E0E))
+                    .padding(16.dp)
+            ) {
                 Text(
                     text = card.title,
                     style = MaterialTheme.typography.titleMedium,
