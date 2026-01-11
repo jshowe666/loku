@@ -157,7 +157,7 @@ fun FeedCardItem(card: FeedCard, modifier: Modifier = Modifier) {
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .aspectRatio(16f / 9f)
+                    .aspectRatio(2f / 3f)
                     .background(
                         Brush.linearGradient(
                             colors = listOf(
@@ -174,9 +174,9 @@ fun FeedCardItem(card: FeedCard, modifier: Modifier = Modifier) {
             ) {
                 Text(
                     text = card.title,
-                    style = MaterialTheme.typography.titleMedium,
-                    color = MaterialTheme.colorScheme.onSurface,
-                    fontWeight = FontWeight.SemiBold
+                    style = MaterialTheme.typography.bodySmall,
+                    color = Color.White,
+                    fontWeight = FontWeight.Medium
                 )
                 Spacer(modifier = Modifier.height(12.dp))
                 Row(
@@ -199,8 +199,8 @@ fun FeedCardItem(card: FeedCard, modifier: Modifier = Modifier) {
                     Spacer(modifier = Modifier.width(8.dp))
                     Text(
                         text = card.userName,
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.onSurface
+                        style = MaterialTheme.typography.bodySmall,
+                        color = Color.White
                     )
                     Spacer(modifier = Modifier.weight(1f))
                     Icon(
@@ -212,8 +212,8 @@ fun FeedCardItem(card: FeedCard, modifier: Modifier = Modifier) {
                     Spacer(modifier = Modifier.width(6.dp))
                     Text(
                         text = "${card.likes}",
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.onSurface
+                        style = MaterialTheme.typography.bodySmall,
+                        color = Color.White
                     )
                 }
             }
